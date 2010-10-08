@@ -1,12 +1,24 @@
-var CallLater= (function(duration){
+/**
+ * Copyright (c) 2010 the original author or authors
+ * 
+ * Permission is hereby granted to use, modify, and distribute this file 
+ * in accordance with the terms of the license agreement accompanying it.
+ */
+
+/** 
+ * The CallLater is utility class to help saving performance while execute much cost functions, methods or tasks.
+ * Inspired by the component source code in Flash.
+ */
+var CallLater = function(duration){
 
 	var inCallLaterPhase,
-	callLaterFlag,
-	methodMap={},
-	defaultDuration=1000;
-
+		 callLaterFlag,
+		 methodMap={},
+		 defaultDuration=20,
+		 ToString = Object.prototype.toString;
+		 
 	duration=isNaN(duration) ? defaultDuration : (duration > 0 ? duration : defaultDuration);
-
+	
 	function executeCallLater(){
 		inCallLaterPhase = true;
 
@@ -15,31 +27,31 @@ var CallLater= (function(duration){
 				 func=item.method,
 				 args=item.args,
 				 target=item.target;
-			if(typeof func=='function'){
-				func.apply(target, args);
-			}
+			
+			func.apply(target, args);
 			delete methodMap[f];
 		}
 		inCallLaterPhase = false;
 		callLaterFlag=false;
 	}
+	/**
+	 * @access public 
+	 * @description add a method to the queue and execute them soon later. 
+	 */
+	this.call = function(method, args, target) {
+			if (inCallLaterPhase || ToString.call(method) !== '[object Function]'){
+				return;
+			}
+			
+			if (args && (ToString.call(args) != '[object Array]')) {
+				args = [ args ];
+			}
 
-	return {
-		call : function(method, args, target){
-				if (inCallLaterPhase){
-					return;
-				}
+ 			methodMap[method]={ method: method, args: args, target: target };
 
-				methodMap[method]={method:method,args:args,target:target};
-
-				if(!callLaterFlag){
-					callLaterFlag=true;
-					setTimeout(executeCallLater, duration);
-				}
-
+			if (!callLaterFlag) {
+				callLaterFlag=true;
+				setTimeout(executeCallLater, duration);
 			}
 	}
-})();
-
-
-
+};
