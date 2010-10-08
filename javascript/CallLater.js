@@ -39,19 +39,19 @@ var CallLater = function(duration){
 	 * @description add a method to the queue and execute them soon later. 
 	 */
 	this.call = function(method, args, target) {
-			if (inCallLaterPhase || ToString.call(method) !== '[object Function]'){
-				return;
-			}
+		if (inCallLaterPhase || ToString.call(method) !== '[object Function]'){
+			return;
+		}
 			
-			if (args && (ToString.call(args) != '[object Array]')) {
-				args = [ args ];
-			}
+		if (args && (ToString.call(args) != '[object Array]')) {
+			args = [ args ];
+		}
 
- 			methodMap[method]={ method: method, args: args, target: target };
+ 		methodMap[method]={ method: method, args: args, target: target };
 
-			if (!callLaterFlag) {
-				callLaterFlag=true;
-				setTimeout(executeCallLater, duration);
-			}
+		if (!callLaterFlag) {
+			callLaterFlag=true;
+			setTimeout(executeCallLater, duration);
+		}
 	}
 };
