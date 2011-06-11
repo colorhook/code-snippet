@@ -66,8 +66,8 @@ class Main{
 		$conn->connect();
 		$conn->processUntil('session_start');
 		foreach($statuses as $item){
-			echo '更新：'. $item . '<br/>';
-			//$conn->presence($item);
+			//echo '更新：'. $item . '<br/>';
+			$conn->presence($item);
 		}
 		$conn->disconnect();
 	}
