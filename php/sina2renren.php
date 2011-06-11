@@ -40,7 +40,7 @@ class Main{
 	public $sinaFector;
 	public $renrenID = '197262681';
 	public $renrenPassword;
-	private $renrenPasswordConfig = 'renrenPassword.ini';
+	private $renrenPasswordConfig = '.renrenPassword.ini';
 
 	public function init(){
 		
