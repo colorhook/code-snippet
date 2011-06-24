@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<sound-data>
+	<group type="My Tune">
+		<sound name='爱的协奏曲 (频谱显示)' path="爱的协奏曲.mp3"/>
+		<sound name="Aquarius" path="http://api.ning.com/files/Y-*cKyWHL3PwnmH4UlabZbYzbM0kvgwoee43*Hs-sKbP-CyL-TN03qvNvxvPn*UDjVGin0mlt6XxHSJ4sB*-Wxf1qLSKiOeu/AquaAquarius.mp3" lyric="lyric/aquarius.lrc"/>
+		<sound name="Zombie" path="http://open.az/uploads/files/1269175917_the_cranberries_-_zombie.mp3" lyric="lyric/Zombie.lrc"/>
+		<sound name="Roses are red" path="http://www.xiaso.net/mymusic/001.mp3" lyric="lyric/Rose are red.lrc"/>
+		<sound name="Doctor Jones" path="http://api.ning.com/files/DmdcU*3gapoCWtZ*AFuUcI8677PV*VdKo34eMG1Mihj4aLYxjATwI2rDrDZqZAs2YePMvm*EGPnaK0vEO55ad9E2iT-TbmPS/AquaDr.Jones.mp3" lyric="lyric/Doctor Jones.lrc"/>
+		<sound name='track01 (miss music file)' path=''/>
+		<sound name="Never Grow Old" path="http://venusmedspa.com/ngo.mp3" lyric="lyric/never grow old.lrc"/>
+		<sound name='track02 (miss music file)' path=''/>
+		<sound name='Lollipop (miss lyric)' path='http://images.q121.com/Storage/20000/16006/Audio/Aqua_-_Lollipop_(Candyman).mp3'/>
+		
+	</group>
+</sound-data>

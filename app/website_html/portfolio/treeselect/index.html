@@ -1,0 +1,279 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta content="text/html;charset=UTF-8" http-equiv="content-type"/>
+		<meta name="keywords" content="Color Hook,Twitter Air,Flash,AIR,twitter API"/>
+		<meta name="author" content="colorhook"/>
+		<title>Color Hook | jquery plugin | treeselect | jquery.treeselect.js</title>
+		<link type="text/css" rel="stylesheet" media="screen" href="../assets/css/style.css"/>
+		<script type='text/javascript' src='http://code.jquery.com/jquery.min.js'></script>
+		<script type='text/javascript' src='jquery.treeselect.js'></script>
+		<style type='text/css'>
+		h3{color:#336699}
+		ul{padding:0;}
+		li{list-style-type:none;margin:0;}
+		pre{border:dashed 1px #6699AA;padding:2px;background:#F2F2F2;}
+		dt{font-weight:bold;margin-left:5px;}
+		dd{padding:0;margin:4px 0 10px 5px;}
+		#content li a{background:#333333;display:inline-block;width:100px;padding:2px 0 2px 10px;cursor:pointer;color:#FFF;}
+		#content li a:hover{background:#666666;color:#EEE;}
+		#menu01, #menu02, #menu03{
+			width:330px;
+			color:#F2F2F2;
+		}
+		#menu01 .treeselect>li{
+			position:relative;
+			float:left;
+		}
+		#menu01 .treeselect ul{
+			position:absolute;
+			left:0px;
+		}
+		#menu01 .treeselect ul ul{
+			position:absolute;
+			left:110px;
+			top:0px;
+		}
+		#menu02 .treeselect>li, #menu03 .treeselect>li{
+			position:relative;
+		}
+		#menu02 .treeselect ul, #menu03 .treeselect ul{
+			position:absolute;
+			left:110px;
+			top:0px;
+		}
+		</style>
+
+		<script type='text/javascript'>
+			
+			$(document).ready(function(){
+				
+				$("#menu01").treeselect();
+
+				var $info=$("#info");
+				$("#menu02").treeselect({
+					clickMode:false,
+					onChange:function(el){
+						var elementA=el.find('a');
+						$info.html(elementA.html()+" selected.");
+					}
+				});
+
+				$("#menu03").treeselect({
+					autoHide:false,
+					data:[{label:"Foo",data:[{label:"Bar"}]},
+								 {label:"Food",data:[
+										{label:"Fruits",data:[
+												{label:'Apple'},{label:'Banana'},{label:'Orange'}
+										]},
+										{label:"vegetables"},
+										{label:"soup"}
+									]}
+							]
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id='wrapper'>
+			<div id='header'>
+				<div id='logo' class='site'>
+					<a href="http://colorhook.com"><img alt="colorhook" src="../assets/images/logo.png"/></a>
+				</div>
+			</div>
+			<div id="content" class='site'>
+				<div class='pagehead'>
+					<h1>jQuery treeselect</h1>
+				</div>
+
+				<h3>1. Summary</h3>
+				<p>jQuery treeselect is a jquery plugin for create menu or navigation with ease.</p>
+				<p>
+					Source Code on github: <a href="http://github.com/colorhook/jquery.treeselect">http://github.com/colorhook/jquery.treeselect</a>
+					<div style='height:40px;'><a href="http://github.com/colorhook/jquery.treeselect/downloads" target="_blank" style='font-weight:bold;font-size:18px;'>Download</a></div>
+				</p>
+				
+				<h3>2. Options</h3>
+				<dl>
+					<dt>clickMode</dt>
+					<dd>If the clickMode is set to true which is default value, the trigger event of showing will be mouse click, or will be mouse over.</dd>
+					<dt>autoHide</dt>
+					<dd>If the autoHide is set to true which is default value, the  trigger event of hidding will be mouse leave, or will be mouse click.</dd>
+					<dt>rootCls</dt>
+					<dd>The CSS class name of the root ul element.</dd>
+					<dt>rootZIndex</dt>
+					<dd>indicate the CSS z-index property of the root ul element.</dd>
+				</dl>
+				<h3>3. Samples</h3>
+				<h4>(1). create a simple menu by $.fn.treeselect</h4>
+				<div id='menu01'>
+					<ul class='treeselect'>
+						 <li>
+							<a>Foo</a>
+							<ul>
+								<li><a>Bar</a></li>
+							</ul>
+						 </li>
+						 <li>
+							<a>Food</a>
+							<ul>
+								<li>
+									<a>Fruits</a>
+									<ul>
+										<li><a>Apple</a></li>
+										<li><a>Banana</a></li>
+										<li><a>Orange</a></li>
+									</ul>
+								 </li>
+								 <li><a>vegetables</a></li>
+								 <li><a>soup</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div style='clear:both;height:60px;'></div>
+
+<h5>HTML CODE</h5>
+<pre lang='html'>
+&lt;div id='menu01'>
+	&lt;ul class='treeselect'>
+		 &lt;li>
+			&lt;a>Foo&lt;/a>
+			&lt;ul>
+				&lt;li>&lt;a>Bar&lt;/a>&lt;/li>
+			&lt;/ul>
+		 &lt;/li>
+		 &lt;li>
+			&lt;a>Food&lt;/a>
+			&lt;ul>
+				&lt;li>
+					&lt;a>Fruits&lt;/a>
+					&lt;ul>
+						&lt;li>&lt;a>Apple&lt;/a>&lt;/li>
+						&lt;li>&lt;a>Banana&lt;/a>&lt;/li>
+						&lt;li>&lt;a>Orange&lt;/a>&lt;/li>
+					&lt;/ul>
+				 &lt;/li>
+				 &lt;li>&lt;a>vegetables&lt;/a>&lt;/li>
+				 &lt;li>&lt;a>soup&lt;/a>&lt;/li>
+			&lt;/ul>
+		&lt;/li>
+	&lt;/ul>
+&lt;/div>
+</pre>
+<h5>JAVASCRIPT CODE</h5>
+<pre lang='javascript'>
+$("#menu01").treeselect();
+</pre>
+
+
+		<h4>(2). add event listener to menu</h4>
+		<div id='menu02'>
+			<ul class='treeselect'>
+				 <li>
+					<a>Foo</a>
+					<ul>
+						<li><a>Bar</a></li>
+					</ul>
+				 </li>
+				 <li>
+					<a>Food</a>
+					<ul>
+						<li>
+							<a>Fruits</a>
+							<ul>
+								<li><a>Apple</a></li>
+								<li><a>Banana</a></li>
+								<li><a>Orange</a></li>
+							</ul>
+						 </li>
+						 <li><a>vegetables</a></li>
+						 <li><a>soup</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		
+		
+		<div id="info" style='margin:50px 0 0 0;'>Nothing selected</div>
+
+<h5>HTML CODE</h5>
+<pre lang='html'>
+&lt;div id='menu02'>
+	&lt;ul class='treeselect'>
+		 &lt;li>
+			&lt;a>Foo&lt;/a>
+			&lt;ul>
+				&lt;li>&lt;a>Bar&lt;/a>&lt;/li>
+			&lt;/ul>
+		 &lt;/li>
+		 &lt;li>
+			&lt;a>Food&lt;/a>
+			&lt;ul>
+				&lt;li>
+					&lt;a>Fruits&lt;/a>
+					&lt;ul>
+						&lt;li>&lt;a>Apple&lt;/a>&lt;/li>
+						&lt;li>&lt;a>Banana&lt;/a>&lt;/li>
+						&lt;li>&lt;a>Orange&lt;/a>&lt;/li>
+					&lt;/ul>
+				 &lt;/li>
+				 &lt;li>&lt;a>vegetables&lt;/a>&lt;/li>
+				 &lt;li>&lt;a>soup&lt;/a>&lt;/li>
+			&lt;/ul>
+		&lt;/li>
+	&lt;/ul>
+&lt;/div>
+</pre>
+<h5>JAVASCRIPT CODE</h5>
+<pre lang='javascript'>
+var $info=$("#info");
+$("#menu02").treeselect({
+	clickMode:false,
+	onChange:function(el){
+		var elementA=el.find('a');
+		$info.html(elementA.html()+" selected.");
+	}
+});
+</pre>
+				<h4>(3). create a menu with javascript data.</h4>
+				<div id='menu03' style='margin-bottom:50px'></div>
+
+<h5>HTML CODE</h5>
+<pre lang='html'>
+&lt;div id='menu03' style='margin-bottom:50px'>&lt;/div>
+</pre>
+<h5>JAVASCRIPT CODE</h5>
+<pre lang='javascript'>
+$("#menu03").treeselect({
+	autoHide:false,
+	data:[{label:"Foo",data:[{label:"Bar"}]},
+	      {label:"Food",data:[
+			 {label:"Fruits",data:[
+					{label:'Apple'},{label:'Banana'},{label:'Orange'}
+				]},
+				{label:"vegetables"},
+				{label:"soup"}
+			 ]}
+	]
+});
+</pre>
+			</div>
+			<div id="footer">
+				<div class='site'>
+					<div class='linkinfo'>
+						
+					</div>
+					
+					<div class='copyright'>
+						<span>Copyright &copy; colorhook.com 2010-2011</span>
+						<span> | </span>
+						<a href='http://colorhook.com/'><b>Color Hook</b></a>
+						<span> | </span>
+						<a href='http://colorhook.com/blog'><b>Blog</b></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
