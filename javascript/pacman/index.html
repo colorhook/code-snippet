@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>吃豆先生</title>
+<style>
+body {
+	padding:0px;
+	margin:0;
+	height:100%;
+	width:100%;
+	height:670px;
+	overflow:hidden;
+	background:#000;
+	text-shadow:0px 1px 1px #ffffff;
+	font-family:"文泉驿微米黑";
+}
+#pacman{
+	width:420px;
+	margin-left:30px;
+}
+#shim { 
+	position:absolute;
+	visibility:hidden
+}
+*{
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.icons{
+	position:relative;
+	top:-38px;
+}
+.icons a{
+	background:#7799ff;
+	border-radius: 16px;
+	position:absolute;
+}
+.icons a span{
+	background:url(left.png) 8px 8px no-repeat;
+}
+.icons a, .icons a span{
+	width:80px;
+	height:80px;
+	display:block;
+}
+.icons a.hover{
+	background:#fff;
+}
+#c-left{
+	left: 165px;
+	top:10px;
+}
+#c-right{
+	left: 355px;
+	top: 10px;
+	-webkit-transform: rotate(180deg);
+}
+#c-up{
+	left: 260px;
+	top: -35px;
+	-webkit-transform: rotate(90deg);
+}
+#c-down{
+	left: 260px;
+	top: 55px;
+	-webkit-transform: rotate(270deg);
+}
+.xy{
+	color:#ffff00;
+	position:absolute;
+	left:36px;
+}
+.score{
+	top:-10px;
+}
+.level{
+	top:15px;
+}
+.symbol{
+	color:red;
+}
+</style>
+</head>
+<body>
+<div id="pacman"></div>
+<div class="icons">
+	<div class="xy score"><span class="symbol">&hearts;</span>得分：<span id="c-score"></span></div>
+	<div class="xy level"><span class="symbol">&diams;</span>等级：<span id="c-level"></span></div>
+	<a id="c-left"><span></span></a>
+	<a id="c-right"><span></span></a>
+	<a id="c-up"><span></span></a>
+	<a id="c-down"><span></span></a>
+</div>
+<script src="pacman.js"></script>
+<script>
+PACMAN.init(document.getElementById("pacman"));
+</script>
+</body>
+</html>
